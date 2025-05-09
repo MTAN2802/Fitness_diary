@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="homepage.css">
-    <script src="fitness_diary.js" defer></script>
+    <script src="homepage.js" defer></script>
     <title>Fitness Diary</title>
 </head>
 <body>
@@ -12,15 +12,15 @@
     <h2>What did you do today?</h2>
     <p id="today"></p>
     <div>
-        <form action="">
+        <form action="workout.html" method="GET">
             <label id="options">Workout:</label><br>
-            <input type="checkbox" id="gym" name="gym" value="Gym"></input>
+            <input type="checkbox" id="gym" name="gym"></input>
             <label for="gym">Gym</label><br>
-            <input type="checkbox" id="muaythai" name="muaythai" value="Muay Thai"></input>
+            <input type="checkbox" id="muaythai" name="muaythai"></input>
             <label for="muaythai">Muay Thai</label><br>
-            <input type="checkbox" id="run" name="run" value="Running"></input>
-            <label for="run">Running</label><br>
-            <input type="checkbox" id="otherbutton" name="other" value="Other"></input>
+            <input type="checkbox" id="running" name="running"></input>
+            <label for="running">Running</label><br>
+            <input type="checkbox" id="otherbutton" name="other"></input>
             <label for="other">Other</label>
             <input type="text" id="other" name="other" ></input>
             <br><br>
