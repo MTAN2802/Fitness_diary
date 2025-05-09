@@ -3,15 +3,15 @@ const currentDate = new Date();
 document.getElementById("today").innerHTML = "Current date: " + currentDate.toLocaleDateString();
 
 //Making the text mandatory if "other" is checked
-const otherbutton = document.getElementById("otherbutton");
-const other = document.getElementById("other")
+const otherButton = document.getElementById("otherbutton");
+const otherOption = document.getElementById("other")
 
-otherbutton.addEventListener("change", () => {
-    other.required = button.checked;
+otherButton.addEventListener("change", () => {
+    otherOption.required = otherButton.checked;
 });
 
 //Alerting if nothing has been selected
-function activeStatus(){
+function activeStatus(e){
     const inputs = document.querySelectorAll('input[type="checkbox"]');
     let active = false;
     inputs.forEach((input) => {
@@ -21,9 +21,6 @@ function activeStatus(){
     });
     if(!active){
         alert("Please select at least one option to continue.")
+        e.preventDefault() // Prevent the form from going to the next page
     }
 }
-
-const submitButton = document.getElementById("continue");
-submitButton.addEventListener("click", activeStatus)
-
