@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="workout.css">
     <script src="workout.js" defer></script>
-    <title>Today's Workout</title>
+    <script src="extractData.js" defer></script>
+    <title>Workout Entry</title>
 </head>
 <body>
-    <h1>Today's Workout</h1>
+    <h1>Workout Entry</h1>
+    <label>Workout date: </label>
+    <input type="date" id="workoutdate" name="workoutdate" value =""></input>
     <!--Table for Gym workout-->
     <div id="gymroutine">
         <h2>Gym Routine:</h2>
@@ -20,9 +23,7 @@
                 <th>Exercise 3</th>
                 <th>Exercise 4</th>
                 <th>Exercise 5</th>
-                <th>Exercise 6</th>
                 <th>Calories burnt</th>
-                <th>Total time</th>
             </tr>
             <tr id="exercises">
                 <td>
@@ -39,9 +40,7 @@
                 <td><p id="exercise3"></p></td>
                 <td><p id="exercise4"></p></td>
                 <td><p id="exercise5"></p></td>
-                <td><p id="exercise6"></p></td>
-                <td><input type="text" id="calories" name="calories"></td>
-                <td><input type="text" id="time" name="time"></td>
+                <td><input type="text" id="gcalories" name="gcalories"></td>
             </tr>
             <tr>
                 <td>Weight</td>
@@ -50,7 +49,6 @@
                 <td><input type="text" id="e3weight" name="e3weight"></td>
                 <td><input type="text" id="e4weight" name="e4weight"></td>
                 <td><input type="text" id="e5weight" name="e5weight"></td>
-                <td><input type="text" id="e6weight" name="e6weight"></td>
             </tr>
             <tr>
                 <td>Reps</td>
@@ -59,7 +57,6 @@
                 <td><input type="text" id="e3reps" name="e3reps"></td>
                 <td><input type="text" id="e4reps" name="e4reps"></td>
                 <td><input type="text" id="e5reps" name="e5reps"></td>
-                <td><input type="text" id="e6reps" name="e6reps"></td>
             </tr>
         </table>
     </div>
@@ -85,7 +82,7 @@
                         <option value="padwork">General padwork</option>
                     </select>
                 </td>
-                <td><input type="text" id="calories" name="calories"></td>
+                <td><input type="text" id="mtcalories" name="mtcalories"></td>
                 <td>
                     <select name="level" id="level">
                         <option value="beginner">Beginner</option>
@@ -94,7 +91,6 @@
                         <option value="alllevels">All levels</option>
                     </select>
                 </td>
-                <td><input type="text" id="sessiontime" name="sessiontime"></td>
             </tr>
         </table>
     </div>
@@ -110,11 +106,11 @@
                 <th>Location</th>
             </tr>
             <tr>
-                <td><input type="text" id="distance" name="distance"></td>
-                <td><input type="text" id="time" name="time"></td>
-                <td><input type="text" id="pace" name="pace"></td>
-                <td><input type="text" id="calories" name="calories"></td>
-                <td><input type="text" id="location" name="location"></td>
+                <td><input type="text" id="rdistance" name="rdistance"></td>
+                <td><input type="text" id="rtime" name="rtime"></td>
+                <td><input type="text" id="rpace" name="rpace"></td>
+                <td><input type="text" id="rcalories" name="rcalories"></td>
+                <td><input type="text" id="rlocation" name="rlocation"></td>
             </tr>
         </table>
     </div>
