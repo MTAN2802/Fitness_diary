@@ -135,16 +135,3 @@ function getData(){
 }
 document.getElementById('submit').addEventListener('click', getData)
 
-//Export to JSON
-document.getElementById('dataForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const response = await fetch('/save', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(muayThaidata)
-        });
-
-    const result = await response.json();
-    alert(result.message);
-})
-
