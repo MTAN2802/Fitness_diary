@@ -21,7 +21,7 @@ try:
     driver.get("http://localhost:8000/homepage.html")
     def local_storage_has_data(driver):
         return driver.execute_script("return localStorage.length > 0;")
-    WebDriverWait(driver, 30).until(
+    WebDriverWait(driver, 180).until(
         local_storage_has_data
         #lambda d: d.execute_script("return localStorage.length > 0;")
     )
