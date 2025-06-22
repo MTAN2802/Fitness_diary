@@ -124,7 +124,7 @@ function getData(){
 
         otherData.push(newWorkout);
     }
-    alert('Successfully submitted')
+
 }
 
 //Local storage to store data from website

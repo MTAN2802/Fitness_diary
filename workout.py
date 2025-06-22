@@ -1,32 +1,41 @@
 import requests
 import pandas
 from selenium import webdriver
-from selenium.webdriver.common.by import By #used to find HTMl element
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 import json
-import time
 import webbrowser
 
 homeUrl = "http://localhost:8000/homepage.html"
-submitUrl = "http://localhost:8000.workout.html"
+submitUrl = "http://localhost:8000/workout.html"
 
-chrome_path = "C:/Program Files/Google/Chrome/Application/chrome.exe %s"
-webbrowser.get(chrome_path).open(homeUrl)
+#options = Options()
+#driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
-
-
-response = requests.get(submitUrl)
-
-driver = webdriver.Chrome()
-driver.get(submitUrl)
-
-
-# Get the data from localStorage
-data = driver.execute_script(
-    "for (let i = 0; i < localStorage.length; i++){console.log(localStorage.getItem(localStorage.key(i)))}"
+#chrome_path = "C:/Program Files/Google/Chrome/Application/chrome.exe %s"
+#webbrowser.get(chrome_path).open(homeUrl)
+try:
+    driver = webdriver.Chrome()
+    driver.get("http://localhost:8000/homepage.html")
+    def local_storage_has_data(driver):
+        return driver.execute_script("return localStorage.length > 0;")
+    WebDriverWait(driver, 30).until(
+        local_storage_has_data
+        #lambda d: d.execute_script("return localStorage.length > 0;")
     )
 
-# Convert from JSON string to Python dict
-workout = json.loads(data)
-print(workout)
+    # Get the data from localStorage
+    data = driver.execute_script(
+        "data = []; for (let i = 0; i < localStorage.length; i++){data.push(localStorage.getItem(localStorage.key(i)))}; return data"
+        )
+    print(driver.current_url)
+    print(data)
 
-driver.quit()
+    # Convert from JSON string to Python dict
+    #workout = json.loads(data)
+    
+
+finally:
+    driver.quit()
