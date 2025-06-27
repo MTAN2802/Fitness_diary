@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="workout.css">
+    <script src="workout.js" defer></script>
+    <title>Workout Entry</title>
+</head>
+<body>
+    <h1>Workout Entry</h1>
+    <label>Workout date: </label>
+    <form method="POST" action="/submit">
+        <input type="date" id="workoutdate" name="workoutdate" value =""></input>
+        <!--Table for Gym workout-->
+        <div id="gymroutine">
+            <h2>Gym Routine:</h2>
+            <table>
+                <tr>
+                    <th>Muscle group</th>
+                    <th>Exercise 1</th>
+                    <th>Exercise 2</th>
+                    <th>Exercise 3</th>
+                    <th>Exercise 4</th>
+                    <th>Exercise 5</th>
+                    <th>Calories burnt</th>
+                </tr>
+                <tr id="exercises">
+                    <td>
+                        <select name="musclegroup" id="musclegroup">
+                            <option>Select a muscle group</option>
+                            <option value="chest">Chest & Triceps</option>
+                            <option value="shoulders">Shoulders & Triceps</option>
+                            <option value="back">Back & Biceps</option>
+                            <option value="legs">Legs & Arms</option>
+                        </select>
+                    </td>
+                    <td><p id="exercise1" name="exercise1"></p></td>
+                    <td><p id="exercise2" name="exercise2"></p></td>
+                    <td><p id="exercise3" name="exercise3"></p></td>
+                    <td><p id="exercise4" name="exercise4"></p></td>
+                    <td><p id="exercise5" name="exercise5"></p></td>
+                    <td><input type="text" id="gcalories" name="gcalories"></td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td><input type="text" id="e1weight" name="e1weight"></td>
+                    <td><input type="text" id="e2weight" name="e2weight"></td>
+                    <td><input type="text" id="e3weight" name="e3weight"></td>
+                    <td><input type="text" id="e4weight" name="e4weight"></td>
+                    <td><input type="text" id="e5weight" name="e5weight"></td>
+                </tr>
+                <tr>
+                    <td>Reps</td>
+                    <td><input type="text" id="e1reps" name="e1reps"></td>
+                    <td><input type="text" id="e2reps" name="e2reps"></td>
+                    <td><input type="text" id="e3reps" name="e3reps"></td>
+                    <td><input type="text" id="e4reps" name="e4reps"></td>
+                    <td><input type="text" id="e5reps" name="e5reps"></td>
+                </tr>
+            </table>
+        </div>
+        <!--Table for Muay Thai workout-->
+        <div id="muaythairoutine">
+            <h2>Muay Thai Routine:</h2>
+            <table>
+                <tr>
+                    <th>Focus point</th>
+                    <th>Calories burnt</th>
+                    <th>Level</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="focuspoint" id="focuspoint">
+                            <option value="kicking">Kicking</option>
+                            <option value="boxing">Boxing</option>
+                            <option value="knees">Knees</option>
+                            <option value="teeps">Teeps</option>
+                            <option value="elbows">Elbows</option>
+                            <option value="clinching">Clinching</option>
+                            <option value="padwork">General padwork</option>
+                        </select>
+                    </td>
+                    <td><input type="text" id="mtcalories" name="mtcalories"></td>
+                    <td>
+                        <select name="level" id="level">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                            <option value="alllevels">All levels</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--Table for running workout-->
+        <div id="runningroutine">
+            <h2>Running Routine:</h2>
+            <table>
+                <tr>
+                    <th>Distance</th>
+                    <th>Total time</th>
+                    <th>Pace</th>
+                    <th>Calories burnt</th>
+                    <th>Location</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="rdistance" name="rdistance"></td>
+                    <td><input type="text" id="rtime" name="rtime"></td>
+                    <td><input type="text" id="rpace" name="rpace"></td>
+                    <td><input type="text" id="rcalories" name="rcalories"></td>
+                    <td><input type="text" id="rlocation" name="rlocation"></td>
+                </tr>
+            </table>
+        </div>
+        <!--Table for other workout-->
+        <div id="otherroutine">
+            <h2>Other Routine:</h2>
+            <table>
+                <tr>
+                    <th>Exercise name</th>
+                    <th>Calories burnt</th>
+                    <th>Total time</th>
+                    <th>Location</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="name" name="name"></td>
+                    <td><input type="text" id="calories" name="calories"></td>
+                    <td><input type="text" id="time" name="time"></td>
+                    <td><input type="text" id="location" name="location"></td>
+                </tr>
+            </table>
+        </div>
+        <input type="submit" id="submit" value="Submit">
+    </form>
+</body>
+</html>
