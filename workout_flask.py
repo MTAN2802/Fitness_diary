@@ -2,8 +2,6 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-data_storage = []
-
 @app.route('/')
 def homepage():
     return render_template('homepage.html')
@@ -80,6 +78,7 @@ def submit():
                            "Calories burnt": o_calories,
                            "Total Time": o_time,
                            "Location": o_location})
+    return submission
 
 
 if __name__ == '__main__':
