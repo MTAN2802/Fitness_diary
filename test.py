@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
+app.json.sort_keys = False #To stop the keys in the dictionary being ordered alphabetically
 
 @app.route('/')
 def homepage():
@@ -13,7 +14,7 @@ def workout_page():
 @app.route('/submit', methods=['POST'])
 def enter_data():
     form_data = request.form.to_dict()
-
+    exercises = []
     filled = {}
     for key in form_data:
         if form_data[key] != '' and form_data[key] != 'Select a muscle group' and form_data[key] != 'false':
@@ -26,18 +27,49 @@ def enter_data():
             'Muscle Group': filled.get('musclegroup'),
             "Exercises":[
                             {"Exercise 1": filled.get('exercise1'), "E1 Weight": filled.get('e1weight'), "E1 Reps": filled.get('e1reps')},
-                            {"Exercise 1": exercise1, "E1 Weight": e1weight, "E1 Reps": e1reps},
-                            {"Exercise 1": exercise1, "E1 Weight": e1weight, "E1 Reps": e1reps},
-                            {"Exercise 1": exercise1, "E1 Weight": e1weight, "E1 Reps": e1reps},
-                            {"Exercise 1": exercise1, "E1 Weight": e1weight, "E1 Reps": e1reps},
-                            {"Exercise 1": exercise1, "E1 Weight": e1weight, "E1 Reps": e1reps}
+                            {"Exercise 2": filled.get('exercise2'), "E2 Weight": filled.get('e2weight'), "E2 Reps": filled.get('e2reps')},
+                            {"Exercise 3": filled.get('exercise3'), "E3 Weight": filled.get('e3weight'), "E3 Reps": filled.get('e3reps')},
+                            {"Exercise 4": filled.get('exercise4'), "E4 Weight": filled.get('e4weight'), "E4 Reps": filled.get('e4reps')},
+                            {"Exercise 5": filled.get('exercise5'), "E5 Weight": filled.get('e5weight'), "E5 Reps": filled.get('e5reps')}
                            ],
             'Calories burnt': filled.get('gcalories')
+        }
+        exercises.append(Gym)
 
+    if filled.get('Muay Thai'):
+        MuayThai = {
+            'Workout Date': filled.get('workoutdate'),
+            'name': 'Muay Thai',
+            'Focus Point': filled.get('focuspoint'),
+            'Level': filled.get('level'),
+            'Calories burnt': filled.get('mtcalories')
+        }
+        exercises.append(MuayThai)
+
+    if filled.get('Running'):
+        Running = {
+            'Workout Date': filled.get('workoutdate'),
+            'Name': 'Running',
+            'Distance': filled.get('rdistance'),
+            'Total Time': filled.get('rtime'),
+            'Pace': filled.get('rpace'),
+            'Location': filled.get('rlocation'),
+            'Calories burnt': filled.get('rcalories')
+        }
+        exercises.append(Running)
+
+    if filled.get('Other'):
+        Other = {
+            'Workout Date': filled.get('workoutdate'),
+            'Name': filled.get('name'),
+            'Total Time': filled.get('time'),
+            'Location': filled.get('location'),
+            'Calories burnt': filled.get('calories')
         }
 
-    return filled
+        exercises.append(Other)
 
+    return exercises
 
 if __name__ == '__main__':
     app.run(debug=True)
