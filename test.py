@@ -1,4 +1,9 @@
 from flask import Flask, request, render_template
+import pandas as pd
+import os
+from sqlalchemy import create_engine
+
+print("Current working directory:", os.getcwd())
 
 app = Flask(__name__)
 app.json.sort_keys = False #To stop the keys in the dictionary being ordered alphabetically
@@ -69,6 +74,15 @@ def enter_data():
 
         exercises.append(Other)
 
+    df = pd.DataFrame(exercises)
+    file_path = 'Workout_list.csv'
+    file_exists = os.path.isfile(file_path)
+    df.to_csv(file_path, mode='a', header=not file_exists, index=False)
+
+    engine = create_engine("postgresql://postgres:12345678@localhost:5432/postgres")
+    data = pd.read_csv(file_path)
+    data.to_sql('Workout', engine, index=False, if_exists='append')
+    
     return exercises
 
 if __name__ == '__main__':
