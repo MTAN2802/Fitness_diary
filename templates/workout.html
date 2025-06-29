@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="workout.css">
-    <script src="workout.js" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/workout.css') }}">
+    <script src="{{ url_for('static', filename='js/workout.js') }}" defer></script>
     <title>Workout Entry</title>
 </head>
 <body>
@@ -14,6 +14,8 @@
         <input type="date" id="workoutdate" name="workoutdate" value =""></input>
         <!--Table for Gym workout-->
         <div id="gymroutine">
+            <br>
+            <input type="hidden" value="false" name="Gym" id="gym">
             <h2>Gym Routine:</h2>
             <table>
                 <tr>
@@ -35,11 +37,11 @@
                             <option value="legs">Legs & Arms</option>
                         </select>
                     </td>
-                    <td><p id="exercise1" name="exercise1"></p></td>
-                    <td><p id="exercise2" name="exercise2"></p></td>
-                    <td><p id="exercise3" name="exercise3"></p></td>
-                    <td><p id="exercise4" name="exercise4"></p></td>
-                    <td><p id="exercise5" name="exercise5"></p></td>
+                    <td><input type="text" id="exercise1" name="exercise1" value="" readonly></td>
+                    <td><input type="text" id="exercise2" name="exercise2" value="" readonly></td>
+                    <td><input type="text" id="exercise3" name="exercise3" value="" readonly></td>
+                    <td><input type="text" id="exercise4" name="exercise4" value="" readonly></td>
+                    <td><input type="text" id="exercise5" name="exercise5" value="" readonly></td>
                     <td><input type="text" id="gcalories" name="gcalories"></td>
                 </tr>
                 <tr>
@@ -62,6 +64,8 @@
         </div>
         <!--Table for Muay Thai workout-->
         <div id="muaythairoutine">
+            <br>
+            <input type="hidden" name="Muay Thai" value="false" id="muaythai">
             <h2>Muay Thai Routine:</h2>
             <table>
                 <tr>
@@ -95,6 +99,8 @@
         </div>
         <!--Table for running workout-->
         <div id="runningroutine">
+            <br>
+            <input type="hidden" value="false" name="Running" id="running">
             <h2>Running Routine:</h2>
             <table>
                 <tr>
@@ -115,6 +121,8 @@
         </div>
         <!--Table for other workout-->
         <div id="otherroutine">
+            <br>
+            <input type="hidden" value="false" name="Other" id="other">
             <h2>Other Routine:</h2>
             <table>
                 <tr>

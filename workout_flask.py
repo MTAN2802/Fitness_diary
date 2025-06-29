@@ -10,8 +10,6 @@ def homepage():
 def workout_page():
     return render_template('workout.html')
 
-
-@app.route('/submit', methods=['POST'])
 def exercises_selected():
     exercises = ['gym', 'muaythai', 'running', 'other']
     selected = []
@@ -20,17 +18,18 @@ def exercises_selected():
             selected.append(exercise)
     return selected
 
+@app.route('/submit', methods=['POST'])
 def submit():
     submission = []
     data = exercises_selected()
-    date = request.form('workoutdate')
+    date = request.form['workoutdate']
 
     if 'gym' in data:
-        muscle_group = request.form('musclegroup')
-        exercise1 = request.form('exercise1')
-        e1weight = request.form('e1weight')
-        e1reps = request.form('e1reps')
-        overall_calories = request.form('gcalories')
+        muscle_group = request.form['musclegroup']
+        exercise1 = request.form['exercise1']
+        e1weight = request.form['e1weight']
+        e1reps = request.form['e1reps']
+        overall_calories = request.form['gcalories']
         submission.append({"Name": "Gym",
                            "Date": date,
                            "Muscle Group": muscle_group,
@@ -45,9 +44,10 @@ def submit():
                            "Calories burnt": overall_calories})
 
     if 'muaythai' in data:
-        focus_point = request.form('focuspoint')
-        calories = request.form('mtcalories')
-        level = request.form('level')
+        focus_point = request.form['focuspoint']
+        calories = request.form['mtcalories']
+        level = request.form['level']
+        return 'focus point = ' + str(focus_point)
         submission.append({"Name": "Muay Thai", 
                            "Date": date, 
                            "Focus Point": focus_point, 
@@ -55,11 +55,11 @@ def submit():
                            "Level": level})
         
     if 'running' in data:
-        distance = request.form('rdistance')
-        r_time = request.form('rtime')
-        pace = request.form('rpace')
-        r_calories = request.form('rcalories')
-        r_location = request.form('rlocation')
+        distance = request.form['rdistance']
+        r_time = request.form['rtime']
+        pace = request.form['rpace']
+        r_calories = request.form['rcalories']
+        r_location = request.form['rlocation']
         submission.append({"Name": "Running",
                            "Date": date,
                            "Distance": distance,
@@ -69,16 +69,16 @@ def submit():
                            "Location": r_location})
         
     if 'other' in data:
-        exercise_name = request.form('name')
-        o_calories = request.form('calories')
-        o_time = request.form('time')
-        o_location = request.form('location')
+        exercise_name = request.form['name']
+        o_calories = request.form['calories']
+        o_time = request.form['time']
+        o_location = request.form['location']
         submission.append({"Name": exercise_name,
                            "Date": date,
                            "Calories burnt": o_calories,
                            "Total Time": o_time,
                            "Location": o_location})
-    return submission
+    return 'submission = ' + str(submission)
 
 
 if __name__ == '__main__':

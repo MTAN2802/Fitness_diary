@@ -5,6 +5,7 @@ const params = ['gym', 'muaythai', 'running', 'other'];
 for (i = 0; i < params.length; i++){
     if (urlParams.get(params[i]) === 'on'){
         document.getElementById(params[i] + 'routine').style.display = 'initial';
+        document.getElementById(params[i]).value = 'true';
     }
 }
 
@@ -31,27 +32,27 @@ function populateExercises(){
     switch(currentSelection){
         case 'chest':
             for (i=0; i < exercises.length; i++){
-                exercises[i].innerHTML = chestWorkout[i]
+                exercises[i].value = chestWorkout[i]
             }
             break;
         case 'shoulders':
             for (i=0; i < exercises.length; i++){
-                exercises[i].innerHTML = shoulderWorkout[i]
+                exercises[i].value = shoulderWorkout[i]
             }
             break;
         case 'back':
             for (i=0; i < exercises.length; i++){
-                exercises[i].innerHTML = backWorkout[i]
+                exercises[i].value = backWorkout[i]
             }
             break;
         case 'legs':
             for (i=0; i < exercises.length; i++){
-                exercises[i].innerHTML = legWorkout[i]
+                exercises[i].value = legWorkout[i]
             }
             break;
         default:
             for (i=0; i < exercises.length; i++){
-                exercises[i].innerHTML = ''
+                exercises[i].value = ''
             }
     }
 }
@@ -92,7 +93,7 @@ function getData(){
         gymData.push(newWorkout);
     }
     if (urlParams.get('muaythai') === 'on'){
-        const name = 'Muay Thai';
+        const name = document.getElementById('mtname').value;
         const focuspoint = document.getElementById('focuspoint').value;
         const calories = document.getElementById('mtcalories').value;
         const level = document.getElementById('level').value;
@@ -115,7 +116,7 @@ function getData(){
         runningData.push(newWorkout);
     }
     if (urlParams.get('other') === 'on'){
-        const name = document.getElementById('name').value;
+        //const name = document.getElementById('name').value;
         const calories = document.getElementById('calories').value;
         const time = document.getElementById('time').value;
         const location = document.getElementById('location').value;
@@ -128,7 +129,7 @@ function getData(){
 }
 
 //Local storage to store data from website
-function storeData(){
+/*function storeData(){
     localStorage.clear();
     if(gymData.length > 0){
         localStorage.setItem('gymData', JSON.stringify(gymData))
@@ -142,7 +143,7 @@ function storeData(){
     if(otherData.length > 0){
         localStorage.setItem('otherData', JSON.stringify(otherData))
     };
-}
+}*/
 document.getElementById('submit').addEventListener('click', getData);
-document.getElementById('submit').addEventListener('click', storeData);
+//  document.getElementById('submit').addEventListener('click', storeData);
 
