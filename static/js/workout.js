@@ -18,7 +18,7 @@ document.getElementById('workoutdate').value = currentDate;
 const muscleGroupDropdown = document.getElementById('musclegroup');
 const exercises = [];
 const exerciseColumns = document.querySelectorAll('tr')[2].querySelectorAll('td').length
-for (i = 1; i < exerciseColumns; i++){
+for (i = 1; i <= exerciseColumns; i++){
     exercises.push(document.getElementById('exercise' + i.toString()))
 }
 

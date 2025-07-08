@@ -5,3 +5,28 @@ td, th{
 #gymroutine, #muaythairoutine, #runningroutine, #otherroutine{
     display: none;
 }
+
+div#date_section{
+    display: inline-flex;
+    align-items: center;
+}
+
+input#workoutdate{
+    margin: 0 10px;
+    font-size: 15px;
+}
+
+#submit{
+    width: 55px;
+    margin: 0;
+    padding: 1px 0;
+}
+
+h2#date{
+    width: 100%;
+}
+
+.input input{
+    width: 80%;
+    margin: 0 10px;
+}

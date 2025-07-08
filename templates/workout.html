@@ -9,9 +9,12 @@
 </head>
 <body>
     <h1>Workout Entry</h1>
-    <label>Workout date: </label>
+    
     <form method="POST" action="/submit">
-        <input type="date" id="workoutdate" name="workoutdate" value =""></input>
+        <div id="date_section">
+            <h2 id="date">Workout date: </h2>
+            <input type="date" id="workoutdate" name="workoutdate" value =""></input>
+        </div>
         <!--Table for Gym workout-->
         <div id="gymroutine">
             <br>
@@ -37,23 +40,26 @@
                             <option value="legs">Legs & Arms</option>
                         </select>
                     </td>
-                    <td><input type="text" id="exercise1" name="exercise1" value="" readonly></td>
-                    <td><input type="text" id="exercise2" name="exercise2" value="" readonly></td>
-                    <td><input type="text" id="exercise3" name="exercise3" value="" readonly></td>
-                    <td><input type="text" id="exercise4" name="exercise4" value="" readonly></td>
-                    <td><input type="text" id="exercise5" name="exercise5" value="" readonly></td>
+                    <td><input type="text" id="exercise1" name="exercise1" value=""></td>
+                    <td><input type="text" id="exercise2" name="exercise2" value=""></td>
+                    <td><input type="text" id="exercise3" name="exercise3" value=""></td>
+                    <td><input type="text" id="exercise4" name="exercise4" value=""></td>
+                    <td><input type="text" id="exercise5" name="exercise5" value=""></td>
                     <td><input type="text" id="gcalories" name="gcalories"></td>
                 </tr>
+
                 <tr>
-                    <td>Weight</td>
-                    <td><input type="text" id="e1weight" name="e1weight"></td>
-                    <td><input type="text" id="e2weight" name="e2weight"></td>
-                    <td><input type="text" id="e3weight" name="e3weight"></td>
-                    <td><input type="text" id="e4weight" name="e4weight"></td>
-                    <td><input type="text" id="e5weight" name="e5weight"></td>
+                    <th>Weight</th>
+                    <td class="input"><input type="text" id="e1weight" name="e1weight"></td>
+                    <td class="input"><input type="text" id="e2weight" name="e2weight"></td>
+                    <td class="input"><input type="text" id="e3weight" name="e3weight"></td>
+                    <td class="input"><input type="text" id="e4weight" name="e4weight"></td>
+                    <td class="input"><input type="text" id="e5weight" name="e5weight"></td>
                 </tr>
+
+                
                 <tr>
-                    <td>Reps</td>
+                    <th>Reps</th>
                     <td><input type="text" id="e1reps" name="e1reps"></td>
                     <td><input type="text" id="e2reps" name="e2reps"></td>
                     <td><input type="text" id="e3reps" name="e3reps"></td>
