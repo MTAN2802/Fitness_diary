@@ -18,11 +18,11 @@ def workout_page():
 
 @app.route('/submit', methods=['POST'])
 def enter_data():
-    form_data = request.form.to_dict()
+    form_data = request.form.to_dict() #returns all entries
     exercises = []
     filled = {}
     for key in form_data:
-        if form_data[key] != '' and form_data[key] != 'Select a muscle group' and form_data[key] != 'false':
+        if form_data[key] != '' and form_data[key] != 'Select a muscle group' and form_data[key] != 'false': #to filter out entries to just selected ones
             filled.update({key: form_data[key]})
 
     if filled.get('Gym'):
