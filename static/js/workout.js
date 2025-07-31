@@ -105,18 +105,19 @@ function getData(){
 
     if (urlParams.get('running') === 'on'){
         const name = 'Running';
+        const runtype = document.getElementById('rtype').value;
         const distance = document.getElementById('rdistance').value;
         const time = document.getElementById('rtime').value;
         const pace = document.getElementById('rpace').value;
         const calories = document.getElementById('rcalories').value;
         const location = document.getElementById('rlocation').value;
 
-        const newWorkout = {name, date, distance, time, pace, calories, location}
+        const newWorkout = {name, date, runtype, distance, time, pace, calories, location}
 
         runningData.push(newWorkout);
     }
     if (urlParams.get('other') === 'on'){
-        //const name = document.getElementById('name').value;
+        const name = document.getElementById('name').value;
         const calories = document.getElementById('calories').value;
         const time = document.getElementById('time').value;
         const location = document.getElementById('location').value;

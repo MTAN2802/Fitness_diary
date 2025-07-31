@@ -9,7 +9,6 @@
 </head>
 <body>
     <h1>Workout Entry</h1>
-    test
     <form method="POST" action="/submit">
         <div id="date_section">
             <h2 id="date">Workout date: </h2>
@@ -154,22 +153,28 @@
             <br>
             <input type="hidden" value="false" name="Running" id="running">
             <h2>Running Routine:</h2>
-            <table>
-                <tr>
-                    <th>Distance</th>
-                    <th>Total time</th>
-                    <th>Pace</th>
-                    <th>Calories burnt</th>
-                    <th>Location</th>
-                </tr>
-                <tr>
-                    <td><input type="text" id="rdistance" name="rdistance"></td>
-                    <td><input type="text" id="rtime" name="rtime"></td>
-                    <td><input type="text" id="rpace" name="rpace"></td>
-                    <td><input type="text" id="rcalories" name="rcalories"></td>
-                    <td><input type="text" id="rlocation" name="rlocation"></td>
-                </tr>
-            </table>
+            <div id="runningtable">
+                <div id="r1"><p>Type</p></div>
+                <div id="r2"><p>Distance</p></div>
+                <div id="r3"><p>Total time</p></div>
+                <div id="r4"><p>Pace</p></div>
+                <div id="r5"><p>Calories burnt</p></div>
+                <div id="r6"><p>Location</p></div>
+                
+                <div id="r7">
+                    <select name="rtype" id="rtype">
+                        <option>Running type</option>
+                        <option value="Zone 2">Zone 2</option>
+                        <option value="Interval">Interval</option>
+                        <option value="Hill Sprint">Hill Sprint</option>
+                        <option value="Standard">Standard</option>
+                    </select></div>
+                <div id="r8"><input type="number" id="rdistance" name="rdistance" autocomplete="off"></div>
+                <div id="r9"><input type="number" id="rtime" name="rtime" autocomplete="off"></div>
+                <div id="r10"><input type="number" id="rpace" name="rpace" autocomplete="off"></div>
+                <div id="r11"><input type="number" id="rcalories" name="rcalories" autocomplete="off"></div>
+                <div id="r12"><input type="text" id="rlocation" name="rlocation" autocomplete="off"></div>
+            </div>
         </div>
         <!--Table for other workout-->
         <div id="otherroutine">

@@ -42,3 +42,46 @@ h2#date{
     position: relative;
     left: 3px;
 }
+
+/*Running Table*/
+#runningtable{
+    display: grid;
+    grid-template-areas: 
+    "r1 r2 r3 r4 r5 r6"
+    "r7 r8 r9 r10 r11 r12";
+    grid-template-columns: repeat(6, 200px);
+    justify-items: center;
+    width: 1000px;
+    margin: 0 0 20px 20px;
+    
+}
+
+#runningtable div{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    border-style: solid;
+    border-top: none;
+    border-right: none;
+}
+
+#runningtable div:nth-of-type(-n+6){
+    border-top: solid;
+}
+
+#runningtable div:nth-of-type(6n+0){
+    border-right: solid;
+}
+
+#runningtable div p{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#runningtable div p, #runningtable div input, #runningtable div select{
+    margin: 10px 0;
+}
+
+#runningtable select option:first-of-type{
+    font-weight: bold;
+}

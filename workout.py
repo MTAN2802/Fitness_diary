@@ -12,9 +12,9 @@ app.json.sort_keys = False #To stop the keys in the dictionary being ordered alp
 def homepage():
     return render_template('homepage.html')
 
-@app.route('/workout.html')
+@app.route('/test.html')
 def workout_page():
-    return render_template('workout.html')
+    return render_template('test.html')
 
 @app.route('/submit', methods=['POST'])
 def enter_data():
