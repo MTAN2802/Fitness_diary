@@ -31,7 +31,7 @@
                 <tr id="exercises">
                     <td>
                         <select name="musclegroup" id="musclegroup">
-                            <option>Select a muscle group</option>
+                            <option value="notusable">Select a muscle group</option>
                             <option value="chest">Chest & Triceps</option>
                             <option value="shoulders">Shoulders & Triceps</option>
                             <option value="back">Back & Biceps</option>
@@ -163,16 +163,16 @@
                 
                 <div id="r7">
                     <select name="rtype" id="rtype">
-                        <option>Running type</option>
+                        <option value="notusable">Running type</option>
                         <option value="Zone 2">Zone 2</option>
                         <option value="Interval">Interval</option>
                         <option value="Hill Sprint">Hill Sprint</option>
                         <option value="Standard">Standard</option>
                     </select></div>
-                <div id="r8"><input type="number" id="rdistance" name="rdistance" autocomplete="off"></div>
-                <div id="r9"><input type="number" id="rtime" name="rtime" autocomplete="off"></div>
-                <div id="r10"><input type="number" id="rpace" name="rpace" autocomplete="off"></div>
-                <div id="r11"><input type="number" id="rcalories" name="rcalories" autocomplete="off"></div>
+                <div id="r8"><input type="number" id="rdistance" name="rdistance" autocomplete="off"><p>km</p></div>
+                <div id="r9"><input type="number" id="rtimehr" name="rtimehr" autocomplete="off"> <p>hr :</p><input type="number" id="rtimemin" name="rtimemin" autocomplete="off"> <p>min</p></div>
+                <div id="r10"><input type="number" id="rpacehr" name="rpacehr" autocomplete="off"> <p>:</p><input type="number" id="rpacemin" name="rpacemin" autocomplete="off"> <p>/km</p></div>
+                <div id="r11"><input type="number" id="rcalories" name="rcalories" autocomplete="off"> <p>Calories</p></div>
                 <div id="r12"><input type="text" id="rlocation" name="rlocation" autocomplete="off"></div>
             </div>
         </div>

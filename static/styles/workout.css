@@ -79,9 +79,24 @@ h2#date{
 }
 
 #runningtable div p, #runningtable div input, #runningtable div select{
-    margin: 10px 0;
+    margin: 10px 5px;
 }
 
-#runningtable select option:first-of-type{
-    font-weight: bold;
+#r8{
+    grid-template-columns: 80px 20px;
 }
+
+#r11{
+    grid-template-columns: 80px 60px;
+}
+
+#r9{
+    grid-template-columns: 60px 40px 60px 40px;
+}
+
+#r10{
+    grid-template-columns: 60px 20px 60px 40px;
+}
+
+
+
