@@ -18,7 +18,10 @@ def workout_page():
 @app.route('/submit', methods=['POST'])
 def enter_data():
     form_data = request.form.to_dict() #returns all entries
-    exercises = []
+    gymworkout = []
+    mtworkout = []
+    runningworkout = []
+    otherworkout = []
     filled = {}
     dont_submit = ['Select a muscle group', 'Focus point', 'Running type']
     for key in form_data:
@@ -39,7 +42,7 @@ def enter_data():
                            ],
             'Calories burnt': filled.get('gcalories')
         }
-        exercises.append(Gym)
+        gymworkout.append(Gym)
 
     if filled.get('Muay Thai'):
         MuayThai = {
@@ -49,7 +52,7 @@ def enter_data():
             'Level': filled.get('level'),
             'Calories burnt': filled.get('mtcalories')
         }
-        exercises.append(MuayThai)
+        mtworkout.append(MuayThai)
 
     if filled.get('Running'):
         def convert_to_min(time_str):
@@ -64,7 +67,7 @@ def enter_data():
             'Location': filled.get('rlocation'),
             'Calories burnt': filled.get('rcalories')
         }
-        exercises.append(Running)
+        runningworkout.append(Running)
 
     if filled.get('Other'):
         Other = {
@@ -75,14 +78,22 @@ def enter_data():
             'Calories burnt': filled.get('calories')
         }
 
-        exercises.append(Other)
+        otherworkout.append(Other)
 
-    df = pd.DataFrame(exercises)
-    file_path = 'Workout_list.csv'
-    file_exists = os.path.isfile(file_path)
-    df.to_csv(file_path, mode='a', header=not file_exists, index=False)
-    
-    return exercises
+    workouts = [
+    ("gymworkout", gymworkout),
+    ("mtworkout", mtworkout),
+    ("runningworkout", runningworkout),
+    ("otherworkout", otherworkout)
+    ]
+    for name, workout in workouts:
+        if len(workout) >= 1:
+            df = pd.DataFrame(workout)
+            file_path = f"{name}.csv"
+            file_exists = os.path.isfile(file_path)
+            df.to_csv(file_path, mode='a', header=not file_exists, index=False)
+
+    return 'Form submitted. Thanks!'
 
 if __name__ == '__main__':
     app.run(debug=True)
