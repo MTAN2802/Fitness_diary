@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,13 @@
     <script src="{{ url_for('static', filename='js/workout.js') }}" defer></script>
     <title>Workout Entry</title>
 </head>
+
 <body>
     <h1>Workout Entry</h1>
     <form method="POST" action="/submit">
         <div id="date_section">
             <h2 id="date">Workout date: </h2>
-            <input type="date" id="workoutdate" name="workoutdate" value =""></input>
+            <input type="date" id="workoutdate" name="workoutdate" value=""></input>
         </div>
         <!--Table for Gym workout-->
         <div id="gymroutine">
@@ -47,22 +49,29 @@
 
                 <tr>
                     <th>Weight</th>
-                    <td class="weight"><input type="number" id="e1weight" name="e1weight" step="0.01" autocomplete="off">kg</td>
-                    <td class="weight"><input type="number" id="e2weight" name="e2weight" step="0.01" autocomplete="off">kg</td>
-                    <td class="weight"><input type="number" id="e3weight" name="e3weight" step="0.01" autocomplete="off">kg</td>
-                    <td class="weight"><input type="number" id="e4weight" name="e4weight" step="0.01" autocomplete="off">kg</td>
-                    <td class="weight"><input type="number" id="e5weight" name="e5weight" step="0.01" autocomplete="off">kg</td>
+                    <td class="weight"><input type="number" id="e1weight" name="e1weight" step="0.01"
+                            autocomplete="off">kg</td>
+                    <td class="weight"><input type="number" id="e2weight" name="e2weight" step="0.01"
+                            autocomplete="off">kg</td>
+                    <td class="weight"><input type="number" id="e3weight" name="e3weight" step="0.01"
+                            autocomplete="off">kg</td>
+                    <td class="weight"><input type="number" id="e4weight" name="e4weight" step="0.01"
+                            autocomplete="off">kg</td>
+                    <td class="weight"><input type="number" id="e5weight" name="e5weight" step="0.01"
+                            autocomplete="off">kg</td>
                 </tr>
 
-                
+
                 <tr>
                     <th>Reps</th>
-                    <td class="repsdata"><p>3 sets of </p>
+                    <td class="repsdata">
+                        <p>3 sets of </p>
                         <select id="e1reps" name="e1reps">
                             <option value="8">8</option>
                             <option value="9">9</option>
                             <option value="10">10</option>
-                        </select></td>
+                        </select>
+                    </td>
                     <td class="repsdata">3 sets of <select id="e2reps" name="e2reps">
                             <option value="8">8</option>
                             <option value="9">9</option>
@@ -155,13 +164,25 @@
             <input type="hidden" value="false" name="Running" id="running">
             <h2>Running Routine:</h2>
             <div id="runningtable">
-                <div id="r1"><p>Type</p></div>
-                <div id="r2"><p>Distance</p></div>
-                <div id="r3"><p>Total time</p></div>
-                <div id="r4"><p>Pace</p></div>
-                <div id="r5"><p>Calories burnt</p></div>
-                <div id="r6"><p>Location</p></div>
-                
+                <div id="r1">
+                    <p>Type</p>
+                </div>
+                <div id="r2">
+                    <p>Distance</p>
+                </div>
+                <div id="r3">
+                    <p>Total time</p>
+                </div>
+                <div id="r4">
+                    <p>Pace</p>
+                </div>
+                <div id="r5">
+                    <p>Calories burnt</p>
+                </div>
+                <div id="r6">
+                    <p>Location</p>
+                </div>
+
                 <div id="r7">
                     <select name="rtype" id="rtype">
                         <option>Running type</option>
@@ -169,15 +190,23 @@
                         <option value="Interval">Interval</option>
                         <option value="Hill Sprint">Hill Sprint</option>
                         <option value="Standard">Standard</option>
-                    </select></div>
-                <div id="r8"><input type="number" id="rdistance" name="rdistance" autocomplete="off" min="0" max="999"><p>km</p></div>
-                <div id="r9"><input type="number" id="rtimehr" name="rtimehr" autocomplete="off" min="0" max="24"> 
-                    <p>hr :</p><input type="number" id="rtimemin" name="rtimemin" autocomplete="off" min="0" max="60"> <p>min</p>
+                    </select>
                 </div>
-                <div id="r10"><input type="number" id="rpacemin" name="rpacemin" autocomplete="off" min="0" max="60"> 
-                    <p>:</p><input type="number" id="rpacesec" name="rpacesec" autocomplete="off" min="0" max="60"> <p>/km</p>
+                <div id="r8"><input type="number" id="rdistance" name="rdistance" autocomplete="off" min="0" max="999">
+                    <p>km</p>
                 </div>
-                <div id="r11"><input type="number" id="rcalories" name="rcalories" autocomplete="off" min="1" max="9999"> <p>Calories</p></div>
+                <div id="r9"><input type="number" id="rtimehr" name="rtimehr" autocomplete="off" min="0" max="24">
+                    <p>hr :</p><input type="number" id="rtimemin" name="rtimemin" autocomplete="off" min="0" max="60">
+                    <p>min</p>
+                </div>
+                <div id="r10"><input type="number" id="rpacemin" name="rpacemin" autocomplete="off" min="0" max="60">
+                    <p>:</p><input type="number" id="rpacesec" name="rpacesec" autocomplete="off" min="0" max="60">
+                    <p>/km</p>
+                </div>
+                <div id="r11"><input type="number" id="rcalories" name="rcalories" autocomplete="off" min="1"
+                        max="9999">
+                    <p>Calories</p>
+                </div>
                 <div id="r12"><input type="text" id="rlocation" name="rlocation" autocomplete="off"></div>
             </div>
         </div>
@@ -186,22 +215,22 @@
             <br>
             <input type="hidden" value="false" name="Other" id="other">
             <h2>Other Routine:</h2>
-            <table>
-                <tr>
-                    <th>Exercise name</th>
-                    <th>Calories burnt</th>
-                    <th>Total time</th>
-                    <th>Location</th>
-                </tr>
-                <tr>
-                    <td><input type="text" id="name" name="name"></td>
-                    <td><input type="text" id="calories" name="calories"></td>
-                    <td><input type="text" id="time" name="time"></td>
-                    <td><input type="text" id="location" name="location"></td>
-                </tr>
-            </table>
+            <div id="othertable">
+                <div id="o1"><p>Exercise name</p></div>
+                <div id="o2"><p>Calories burnt</p></div>
+                <div id="o3"><p>Total time</p></div>
+                <div id="o4"><p>Location</p></div>
+                <div id="o5"><input type="text" id="name" name="name" autocomplete="off"></div>
+                <div id="o6"><input type="number" id="calories" name="calories" autocomplete="off" min="1" max="9999"><p>Calories</p></div>
+                <div id="o7"><input type="number" id="timehr" name="timehr" autocomplete="off" min="0" max="24">
+                    <p>hr :</p><input type="number" id="timemin" name="timemin" autocomplete="off" min="0" max="60">
+                    <p>min</p>
+                </div>
+                <div id="o8"><input type="text" id="location" name="location"></div>
+            </div>
         </div>
         <input type="submit" id="submit" value="Submit">
     </form>
 </body>
+
 </html>

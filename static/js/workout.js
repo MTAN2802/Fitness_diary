@@ -9,6 +9,11 @@ for (i = 0; i < params.length; i++){
     }
 }
 
+if (urlParams.get('other') == 'on'){
+    const otherExercise = urlParams.getAll('other')[1];
+    document.getElementById('name').value = otherExercise
+}
+
 //Adding current date to website
 const currentDate = new Date().toLocaleDateString('en-CA');
 document.getElementById('workoutdate').value = currentDate;
