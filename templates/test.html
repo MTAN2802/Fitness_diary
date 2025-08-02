@@ -31,7 +31,7 @@
                 <tr id="exercises">
                     <td>
                         <select name="musclegroup" id="musclegroup">
-                            <option value="notusable">Select a muscle group</option>
+                            <option>Select a muscle group</option>
                             <option value="chest">Chest & Triceps</option>
                             <option value="shoulders">Shoulders & Triceps</option>
                             <option value="back">Back & Biceps</option>
@@ -127,6 +127,7 @@
                 <tr>
                     <td>
                         <select name="focuspoint" id="focuspoint">
+                            <option>Focus point</option>
                             <option value="kicking">Kicking</option>
                             <option value="boxing">Boxing</option>
                             <option value="knees">Knees</option>
@@ -163,16 +164,20 @@
                 
                 <div id="r7">
                     <select name="rtype" id="rtype">
-                        <option value="notusable">Running type</option>
+                        <option>Running type</option>
                         <option value="Zone 2">Zone 2</option>
                         <option value="Interval">Interval</option>
                         <option value="Hill Sprint">Hill Sprint</option>
                         <option value="Standard">Standard</option>
                     </select></div>
-                <div id="r8"><input type="number" id="rdistance" name="rdistance" autocomplete="off"><p>km</p></div>
-                <div id="r9"><input type="number" id="rtimehr" name="rtimehr" autocomplete="off"> <p>hr :</p><input type="number" id="rtimemin" name="rtimemin" autocomplete="off"> <p>min</p></div>
-                <div id="r10"><input type="number" id="rpacehr" name="rpacehr" autocomplete="off"> <p>:</p><input type="number" id="rpacemin" name="rpacemin" autocomplete="off"> <p>/km</p></div>
-                <div id="r11"><input type="number" id="rcalories" name="rcalories" autocomplete="off"> <p>Calories</p></div>
+                <div id="r8"><input type="number" id="rdistance" name="rdistance" autocomplete="off" min="0" max="999"><p>km</p></div>
+                <div id="r9"><input type="number" id="rtimehr" name="rtimehr" autocomplete="off" min="0" max="24"> 
+                    <p>hr :</p><input type="number" id="rtimemin" name="rtimemin" autocomplete="off" min="0" max="60"> <p>min</p>
+                </div>
+                <div id="r10"><input type="number" id="rpacemin" name="rpacemin" autocomplete="off" min="0" max="60"> 
+                    <p>:</p><input type="number" id="rpacesec" name="rpacesec" autocomplete="off" min="0" max="60"> <p>/km</p>
+                </div>
+                <div id="r11"><input type="number" id="rcalories" name="rcalories" autocomplete="off" min="1" max="9999"> <p>Calories</p></div>
                 <div id="r12"><input type="text" id="rlocation" name="rlocation" autocomplete="off"></div>
             </div>
         </div>

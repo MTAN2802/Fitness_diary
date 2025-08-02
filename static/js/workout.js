@@ -59,7 +59,7 @@ function populateExercises(){
 
 muscleGroupDropdown.addEventListener('change', populateExercises);
 
-//extracting data from website
+/*extracting data from website
 const gymData = [];
 const muayThaiData = [];
 const runningData = [];
@@ -107,8 +107,8 @@ function getData(){
         const name = 'Running';
         const runtype = document.getElementById('rtype').value;
         const distance = document.getElementById('rdistance').value;
-        const time = document.getElementById('rtime').value;
-        const pace = document.getElementById('rpace').value;
+        const time = document.getElementById('rtimehr').value.toString() + ':' + document.getElementById('rtimemin').toString();
+        const pace = document.getElementById('rpacehr').value.toString() + ':' + document.getElementById('rpacemin').toString();
         const calories = document.getElementById('rcalories').value;
         const location = document.getElementById('rlocation').value;
 
@@ -129,22 +129,6 @@ function getData(){
 
 }
 
-//Local storage to store data from website
-/*function storeData(){
-    localStorage.clear();
-    if(gymData.length > 0){
-        localStorage.setItem('gymData', JSON.stringify(gymData))
-    };
-    if(muayThaiData.length > 0){
-        localStorage.setItem('muayThaiData', JSON.stringify(muayThaiData))
-    };
-    if(runningData.length > 0){
-        localStorage.setItem('runningData', JSON.stringify(runningData))
-    };
-    if(otherData.length > 0){
-        localStorage.setItem('otherData', JSON.stringify(otherData))
-    };
-}*/
-document.getElementById('submit').addEventListener('click', getData);
-//  document.getElementById('submit').addEventListener('click', storeData);
+
+document.getElementById('submit').addEventListener('click', getData);*/
 

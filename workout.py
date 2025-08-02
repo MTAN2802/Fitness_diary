@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template
 import pandas as pd
 import os
-from sqlalchemy import create_engine
 
 print("Current working directory:", os.getcwd())
 
@@ -21,8 +20,9 @@ def enter_data():
     form_data = request.form.to_dict() #returns all entries
     exercises = []
     filled = {}
+    dont_submit = ['Select a muscle group', 'Focus point', 'Running type']
     for key in form_data:
-        if form_data[key] != '' and form_data[key] != 'Select a muscle group' and form_data[key] != 'false': #to filter out entries to just selected ones
+        if form_data[key] != '' and form_data[key] != 'false' and form_data[key] not in dont_submit: #to filter out entries to just selected ones
             filled.update({key: form_data[key]})
 
     if filled.get('Gym'):
@@ -52,12 +52,15 @@ def enter_data():
         exercises.append(MuayThai)
 
     if filled.get('Running'):
+        def convert_to_min(time_str):
+            hours, minutes = map(int, time_str.split(':'))
+            return hours * 60 + minutes
         Running = {
             'Workout Date': filled.get('workoutdate'),
             'Name': 'Running',
-            'Distance': filled.get('rdistance'),
-            'Total Time': filled.get('rtime'),
-            'Pace': filled.get('rpace'),
+            'Distance (km)': filled.get('rdistance'),
+            'Total Time (min)': convert_to_min(filled.get('rtimehr') + ':' + filled.get('rtimemin')),
+            'Pace': filled.get('rpacemin') + ':' + filled.get('rpacesec'),
             'Location': filled.get('rlocation'),
             'Calories burnt': filled.get('rcalories')
         }
@@ -78,10 +81,6 @@ def enter_data():
     file_path = 'Workout_list.csv'
     file_exists = os.path.isfile(file_path)
     df.to_csv(file_path, mode='a', header=not file_exists, index=False)
-
-    engine = create_engine("postgresql://postgres:12345678@localhost:5432/postgres")
-    data = pd.read_csv(file_path)
-    data.to_sql('Workout', engine, index=False, if_exists='append')
     
     return exercises
 
