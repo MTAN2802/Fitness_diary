@@ -21,142 +21,137 @@
             <br>
             <input type="hidden" value="false" name="Gym" id="gym">
             <h2>Gym Routine:</h2>
-            <table>
-                <tr>
-                    <th>Muscle group</th>
-                    <th>Exercise 1</th>
-                    <th>Exercise 2</th>
-                    <th>Exercise 3</th>
-                    <th>Exercise 4</th>
-                    <th>Exercise 5</th>
-                </tr>
-                <tr id="exercises">
-                    <td>
-                        <select name="musclegroup" id="musclegroup">
-                            <option>Select a muscle group</option>
-                            <option value="chest">Chest & Triceps</option>
-                            <option value="shoulders">Shoulders & Triceps</option>
-                            <option value="back">Back & Biceps</option>
-                            <option value="legs">Legs & Arms</option>
-                        </select>
-                    </td>
-                    <td><input type="text" id="exercise1" name="exercise1" value="" autocomplete="off"></td>
-                    <td><input type="text" id="exercise2" name="exercise2" value="" autocomplete="off"></td>
-                    <td><input type="text" id="exercise3" name="exercise3" value="" autocomplete="off"></td>
-                    <td><input type="text" id="exercise4" name="exercise4" value="" autocomplete="off"></td>
-                    <td><input type="text" id="exercise5" name="exercise5" value="" autocomplete="off"></td>
-                </tr>
+            <div id="gymtable">
+                <div id="g1"><p>Muscle group</p></div>
+                <div id="g2"><p>Exercise 1</p></div>
+                <div id="g3"><p>Exercise 2</p></div>
+                <div id="g4"><p>Exercise 3</p></div>
+                <div id="g5"><p>Exercise 4</p></div>
+                <div id="g6"><p>Exercise 5</p></div>
 
-                <tr>
-                    <th>Weight</th>
-                    <td class="weight"><input type="number" id="e1weight" name="e1weight" step="0.01"
-                            autocomplete="off">kg</td>
-                    <td class="weight"><input type="number" id="e2weight" name="e2weight" step="0.01"
-                            autocomplete="off">kg</td>
-                    <td class="weight"><input type="number" id="e3weight" name="e3weight" step="0.01"
-                            autocomplete="off">kg</td>
-                    <td class="weight"><input type="number" id="e4weight" name="e4weight" step="0.01"
-                            autocomplete="off">kg</td>
-                    <td class="weight"><input type="number" id="e5weight" name="e5weight" step="0.01"
-                            autocomplete="off">kg</td>
-                </tr>
+                <div id="g7">
+                    <select name="musclegroup" id="musclegroup">
+                        <option>Select a muscle group</option>
+                        <option value="chest">Chest & Triceps</option>
+                        <option value="shoulders">Shoulders & Triceps</option>
+                        <option value="back">Back & Biceps</option>
+                        <option value="legs">Legs & Arms</option>
+                    </select>
+                </div>
+                <div id="g8"><input type="text" id="exercise1" name="exercise1" value="" autocomplete="off"></div>
+                <div id="g9"><input type="text" id="exercise2" name="exercise2" value="" autocomplete="off"></div>
+                <div id="g10"><input type="text" id="exercise3" name="exercise3" value="" autocomplete="off"></div>
+                <div id="g11"><input type="text" id="exercise4" name="exercise4" value="" autocomplete="off"></div>
+                <div id="g12"><input type="text" id="exercise5" name="exercise5" value="" autocomplete="off"></div>
 
+                <div id="g13"><p>Weight</p></div>
+                <div id="g14"><input type="number" id="e1weight" name="e1weight" step="0.01"
+                    autocomplete="off"><p>kg</p></div>
+                <div id="g15"><input type="number" id="e2weight" name="e2weight" step="0.01"
+                    autocomplete="off"><p>kg</p></div>
+                <div id="g16"><input type="number" id="e3weight" name="e3weight" step="0.01"
+                    autocomplete="off"><p>kg</p></div>
+                <div id="g17"><input type="number" id="e4weight" name="e4weight" step="0.01"
+                    autocomplete="off"><p>kg</p></div>
+                <div id="g18"><input type="number" id="e5weight" name="e5weight" step="0.01"
+                    autocomplete="off"><p>kg</p></div>
 
-                <tr>
-                    <th>Reps</th>
-                    <td class="repsdata">
-                        <p>3 sets of </p>
-                        <select id="e1reps" name="e1reps">
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </td>
-                    <td class="repsdata">3 sets of <select id="e2reps" name="e2reps">
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select></td>
-                    <td class="repsdata">3 sets of <select id="e3reps" name="e3reps">
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select></td>
-                    <td class="repsdata">3 sets of <select id="e4reps" name="e4reps">
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select></td>
-                    <td class="repsdata">3 sets of <select id="e5reps" name="e5reps">
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select></td>
-                </tr>
-                <tr>
-                    <th>Completed?</th>
-                    <td>
-                        <input type="radio" id="e1complete" name="e1complete" value="yes"> Yes
-                        <input type="radio" id="e1complete" name="e1complete" value="no"> No
-                    </td>
-                    <td>
-                        <input type="radio" id="e2complete" name="e2complete" value="yes"> Yes
-                        <input type="radio" id="e2complete" name="e2complete" value="no"> No
-                    </td>
-                    <td>
-                        <input type="radio" id="e3complete" name="e3complete" value="yes"> Yes
-                        <input type="radio" id="e3complete" name="e3complete" value="no"> No
-                    </td>
-                    <td>
-                        <input type="radio" id="e4complete" name="e4complete" value="yes"> Yes
-                        <input type="radio" id="e4complete" name="e4complete" value="no"> No
-                    </td>
-                    <td>
-                        <input type="radio" id="e5complete" name="e5complete" value="yes"> Yes
-                        <input type="radio" id="e5complete" name="e5complete" value="no"> No
-                    </td>
-                </tr>
-                <tr>
-                    <th>Calories burnt</th>
-                    <td><input type="number" id="gcalories" name="gcalories" autocomplete="off"></td>
-                </tr>
-            </table>
+                <div id="g19"><p>Reps</p></div>
+                <div id="g20"><p>3 sets of </p>
+                    <select id="e1reps" name="e1reps">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div id="g21"><p>3 sets of</p> 
+                    <select id="e2reps" name="e2reps">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div id="g22"><p>3 sets of</p>
+                    <select id="e3reps" name="e3reps">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div id="g23"><p>3 sets of</p>
+                    <select id="e4reps" name="e4reps">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div id="g24"><p>3 sets of</p>
+                    <select id="e5reps" name="e5reps">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+
+                <div id="g25"><p>Completed?</p></div>
+                <div id="g26">
+                    <input type="radio" id="e1complete" name="e1complete" value="yes"> <p>Yes</p>
+                    <input type="radio" id="e1complete" name="e1complete" value="no"> <p>No</p>
+                </div>
+                <div id="g27">
+                    <input type="radio" id="e2complete" name="e2complete" value="yes"><p>Yes</p>
+                    <input type="radio" id="e2complete" name="e2complete" value="no"><p>No</p>
+                </div>
+                <div id="g28">
+                    <input type="radio" id="e3complete" name="e3complete" value="yes"><p>Yes</p>
+                    <input type="radio" id="e3complete" name="e3complete" value="no"><p>No</p>
+                </div>
+                <div id="g29">
+                    <input type="radio" id="e4complete" name="e4complete" value="yes"><p>Yes</p>
+                    <input type="radio" id="e4complete" name="e4complete" value="no"><p>No</p>
+                </div>
+                <div id="g30">
+                    <input type="radio" id="e5complete" name="e5complete" value="yes"><p>Yes</p>
+                    <input type="radio" id="e5complete" name="e5complete" value="no"><p>No</p>
+                </div>
+                
+                <div id="g31"><p>Calories burnt</p></div>
+                <div id="g32"><input type="number" id="gcalories" name="gcalories" autocomplete="off"><p>Calories</p></div>
+                <div id="g33"></div>
+            </div>
         </div>
         <!--Table for Muay Thai workout-->
         <div id="muaythairoutine">
             <br>
             <input type="hidden" name="Muay Thai" value="false" id="muaythai">
             <h2>Muay Thai Routine:</h2>
-            <table>
-                <tr>
-                    <th>Focus point</th>
-                    <th>Calories burnt</th>
-                    <th>Level</th>
-                </tr>
-                <tr>
-                    <td>
-                        <select name="focuspoint" id="focuspoint">
-                            <option>Focus point</option>
-                            <option value="kicking">Kicking</option>
-                            <option value="boxing">Boxing</option>
-                            <option value="knees">Knees</option>
-                            <option value="teeps">Teeps</option>
-                            <option value="elbows">Elbows</option>
-                            <option value="clinching">Clinching</option>
-                            <option value="padwork">General padwork</option>
-                        </select>
-                    </td>
-                    <td><input type="text" id="mtcalories" name="mtcalories"></td>
-                    <td>
-                        <select name="level" id="level">
-                            <option value="Beginner">Beginner</option>
-                            <option value="Intermediate">Intermediate</option>
-                            <option value="Advanced">Advanced</option>
-                            <option value="All levels">All levels</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
+            <div id="mttable">
+                <div id="m1"><p>Focus point</p></div>
+                <div id="m2"><p>Calories burnt</p></div>
+                <div id="m3"><p>Level</p></div>
+                
+                <div id="m4">
+                    <select name="focuspoint" id="focuspoint">
+                        <option>Focus point</option>
+                        <option value="kicking">Kicking</option>
+                        <option value="boxing">Boxing</option>
+                        <option value="knees">Knees</option>
+                        <option value="teeps">Teeps</option>
+                        <option value="elbows">Elbows</option>
+                        <option value="clinching">Clinching</option>
+                        <option value="padwork">General padwork</option>
+                    </select>
+                </div>
+                <div id="m5"><input type="text" id="mtcalories" name="mtcalories" autocomplete="off"><p>Calories</p></div>
+                <div id="m6">
+                    <select name="level" id="level">
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="All levels">All levels</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <!--Table for running workout-->
         <div id="runningroutine">
