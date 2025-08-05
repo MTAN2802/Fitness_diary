@@ -12,9 +12,9 @@ app.json.sort_keys = False #To stop the keys in the dictionary being ordered alp
 def homepage():
     return render_template('homepage.html')
 
-@app.route('/test.html')
+@app.route('/workout.html')
 def workout_page():
-    return render_template('test.html')
+    return render_template('workout.html')
 
 @app.route('/submit', methods=['POST'])
 def enter_data():
@@ -54,7 +54,7 @@ def enter_data():
             GymWorkout = {
                 'session': session_id,
                 'Muscle Group': filled.get('musclegroup'),
-                "Exercise": filled.get(f'exercise{i}'), "Weight": filled.get(f'e{i}weight'), "Reps": filled.get(f'e{i}reps'), "Full reps?": filled.get(f'e{i}complete')
+                "Exercise": filled.get(f'exercise{i}'), "Weight": filled.get(f'e{i}weight'), "Reps": filled.get(f'e{i}reps'), "Full set of reps?": filled.get(f'e{i}complete')
             }
             gymworkout.append(GymWorkout)
 

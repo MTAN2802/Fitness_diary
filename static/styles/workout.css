@@ -40,6 +40,22 @@ h2#date{
     border-right: none;
 }
 
+#r11, #o6, #m5, #g32{ /*Layout for calories input*/
+    grid-template-columns: 80px 60px;
+}
+
+#r9, #o7{ /*Layout for time input*/
+    grid-template-columns: 60px 40px 60px 40px;
+}
+
+#runningtable div p, #othertable div p, #mttable div p, #gymtable div p{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#runningtable div p, #runningtable div input, #runningtable div select{
+    margin: 10px 5px;
+}
 
 /*Gym Table*/
 #gymtable{
@@ -108,26 +124,8 @@ h2#date{
     
 }
 
-
-#runningtable div p, #othertable div p, #mttable div p, #gymtable div p{
-    font-weight: bold;
-    font-size: 16px;
-}
-
-#runningtable div p, #runningtable div input, #runningtable div select{
-    margin: 10px 5px;
-}
-
 #r8{
     grid-template-columns: 80px 20px;
-}
-
-#r11, #o6, #m5, #g32{ /*Layout for calories input*/
-    grid-template-columns: 80px 60px;
-}
-
-#r9, #o7{ /*Layout for time input*/
-    grid-template-columns: 60px 40px 60px 40px;
 }
 
 #r10{
