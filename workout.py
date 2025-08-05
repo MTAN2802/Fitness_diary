@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 import pandas as pd
 import os
+import csv
 
 print("Current working directory:", os.getcwd())
 
@@ -18,6 +19,7 @@ def workout_page():
 @app.route('/submit', methods=['POST'])
 def enter_data():
     form_data = request.form.to_dict() #returns all entries
+    gymsession = []
     gymworkout = []
     mtworkout = []
     runningworkout = []
@@ -29,20 +31,33 @@ def enter_data():
             filled.update({key: form_data[key]})
 
     if filled.get('Gym'):
-        Gym = {
+        if os.path.exists("gymsession.csv"):
+            with open("gymsession.csv", "r", newline="") as file:
+                reader = csv.DictReader(file)
+                rows = list(reader)
+                last_session_id = int(rows[-1]['session']) if rows else 0
+        else:
+            last_session_id = 0
+        
+        session_id = last_session_id + 1;
+        GymSession = {
             'Workout Date': filled.get('workoutdate'),
             'name': 'Gym',
-            'Muscle Group': filled.get('musclegroup'),
-            "Exercises":[
-                            {"Exercise 1": filled.get('exercise1'), "E1 Weight": filled.get('e1weight'), "E1 Reps": filled.get('e1reps')},
-                            {"Exercise 2": filled.get('exercise2'), "E2 Weight": filled.get('e2weight'), "E2 Reps": filled.get('e2reps')},
-                            {"Exercise 3": filled.get('exercise3'), "E3 Weight": filled.get('e3weight'), "E3 Reps": filled.get('e3reps')},
-                            {"Exercise 4": filled.get('exercise4'), "E4 Weight": filled.get('e4weight'), "E4 Reps": filled.get('e4reps')},
-                            {"Exercise 5": filled.get('exercise5'), "E5 Weight": filled.get('e5weight'), "E5 Reps": filled.get('e5reps')}
-                           ],
+            'session': session_id,
+            'Muscle Group': filled.get('musclegroup'),             
             'Calories burnt': filled.get('gcalories')
         }
-        gymworkout.append(Gym)
+        gymsession.append(GymSession)
+
+        for i in range(1,6):
+            i = str(i)
+            GymWorkout = {
+                'session': session_id,
+                'Muscle Group': filled.get('musclegroup'),
+                "Exercise": filled.get(f'exercise{i}'), "Weight": filled.get(f'e{i}weight'), "Reps": filled.get(f'e{i}reps'), "Full reps?": filled.get(f'e{i}complete')
+            }
+            gymworkout.append(GymWorkout)
+
 
     if filled.get('Muay Thai'):
         MuayThai = {
@@ -81,6 +96,7 @@ def enter_data():
         otherworkout.append(Other)
 
     workouts = [
+    ("gymsession", gymsession),        
     ("gymworkout", gymworkout),
     ("mtworkout", mtworkout),
     ("runningworkout", runningworkout),
