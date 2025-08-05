@@ -9,6 +9,11 @@ for (i = 0; i < params.length; i++){
     }
 }
 
+if (urlParams.get('other') == 'on'){
+    const otherExercise = urlParams.getAll('other')[1];
+    document.getElementById('name').value = otherExercise
+}
+
 //Adding current date to website
 const currentDate = new Date().toLocaleDateString('en-CA');
 document.getElementById('workoutdate').value = currentDate;
@@ -17,8 +22,7 @@ document.getElementById('workoutdate').value = currentDate;
 //Changing exercise fields based on selected musle group
 const muscleGroupDropdown = document.getElementById('musclegroup');
 const exercises = [];
-const exerciseColumns = document.querySelectorAll('tr')[2].querySelectorAll('td').length
-for (i = 1; i <= exerciseColumns; i++){
+for (i = 1; i <= 5; i++){
     exercises.push(document.getElementById('exercise' + i.toString()))
 }
 
@@ -59,7 +63,7 @@ function populateExercises(){
 
 muscleGroupDropdown.addEventListener('change', populateExercises);
 
-//extracting data from website
+/*extracting data from website
 const gymData = [];
 const muayThaiData = [];
 const runningData = [];
@@ -105,18 +109,19 @@ function getData(){
 
     if (urlParams.get('running') === 'on'){
         const name = 'Running';
+        const runtype = document.getElementById('rtype').value;
         const distance = document.getElementById('rdistance').value;
-        const time = document.getElementById('rtime').value;
-        const pace = document.getElementById('rpace').value;
+        const time = document.getElementById('rtimehr').value.toString() + ':' + document.getElementById('rtimemin').toString();
+        const pace = document.getElementById('rpacehr').value.toString() + ':' + document.getElementById('rpacemin').toString();
         const calories = document.getElementById('rcalories').value;
         const location = document.getElementById('rlocation').value;
 
-        const newWorkout = {name, date, distance, time, pace, calories, location}
+        const newWorkout = {name, date, runtype, distance, time, pace, calories, location}
 
         runningData.push(newWorkout);
     }
     if (urlParams.get('other') === 'on'){
-        //const name = document.getElementById('name').value;
+        const name = document.getElementById('name').value;
         const calories = document.getElementById('calories').value;
         const time = document.getElementById('time').value;
         const location = document.getElementById('location').value;
@@ -128,22 +133,6 @@ function getData(){
 
 }
 
-//Local storage to store data from website
-/*function storeData(){
-    localStorage.clear();
-    if(gymData.length > 0){
-        localStorage.setItem('gymData', JSON.stringify(gymData))
-    };
-    if(muayThaiData.length > 0){
-        localStorage.setItem('muayThaiData', JSON.stringify(muayThaiData))
-    };
-    if(runningData.length > 0){
-        localStorage.setItem('runningData', JSON.stringify(runningData))
-    };
-    if(otherData.length > 0){
-        localStorage.setItem('otherData', JSON.stringify(otherData))
-    };
-}*/
-document.getElementById('submit').addEventListener('click', getData);
-//  document.getElementById('submit').addEventListener('click', storeData);
+
+document.getElementById('submit').addEventListener('click', getData);*/
 

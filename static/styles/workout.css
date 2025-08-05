@@ -1,7 +1,3 @@
-td, th{
-    border-style: solid;
-}
-
 #gymroutine, #muaythairoutine, #runningroutine, #otherroutine{
     display: none;
 }
@@ -26,19 +22,130 @@ h2#date{
     width: 100%;
 }
 
-.weight input{
-    width: 20%;
-    margin: 0 10px;
+/**/
+#runningtable div:nth-of-type(-n+6), #othertable div:nth-of-type(-n+4), #mttable div:nth-of-type(-n+3), #gymtable div:nth-of-type(-n+6){
+    border-top: solid;
 }
 
-.repsdata{
-    display: grid;
-    grid-template-columns: 75px 40px;
-    justify-items: center;
-    align-items: center;
+#runningtable div:nth-of-type(6n+0), #othertable div:nth-of-type(4n+0), #mttable div:nth-of-type(3n+0), #gymtable div:nth-of-type(6n+0){
+    border-right: solid;
 }
-.repsdata p{
-    margin: 0;
-    position: relative;
-    left: 3px;
+
+#runningtable div, #othertable div, #mttable div, #gymtable div{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    border-style: solid;
+    border-top: none;
+    border-right: none;
+}
+
+
+/*Gym Table*/
+#gymtable{
+    display: grid;
+    grid-template-areas: 
+    "g1 g2 g3 g4 g5 g6"
+    "g7 g8 g9 g10 g11 g12"
+    "g13 g14 g15 g16 g17 g18"
+    "g19 g20 g21 g22 g23 g24"
+    "g25 g26 g27 g8 g29 g30"
+    "g31 g32 . . . .";
+    grid-template-columns: repeat(6, 200px);
+    justify-items: center;
+    width: 1200px;
+    margin: 0 0 20px 20px;
+}
+
+#gymtable div p, #gymtable div input, #gymtable div select{
+    margin: 10px 5px;
+}
+
+#g20, #g21, #g22, #g23, #g24{
+    grid-template-columns: 70px 60px;
+}
+
+#g26, #g27, #g28, #g29, #g30{
+    grid-template-columns: 30px 50px 30px 50px;
+}
+
+#g14, #g15, #g16, #g17, #g18{
+    grid-template-columns: 70px 30px;
+}
+
+#g33{
+    border-right: 0;
+    border-bottom: 0;
+}
+
+
+/*Muay Thai Table*/
+#mttable{
+    display: grid;
+    grid-template-areas: 
+    "m1 m2 m3"
+    "m4 m5 m6";
+    grid-template-columns: repeat(3, 200px);
+    justify-items: center;
+    width: 1000px;
+    margin: 0 0 20px 20px;
+}
+
+#mttable div p, #mttable div input, #mttable div select{
+    margin: 10px 5px;
+}
+
+/*Running Table*/
+#runningtable{
+    display: grid;
+    grid-template-areas: 
+    "r1 r2 r3 r4 r5 r6"
+    "r7 r8 r9 r10 r11 r12";
+    grid-template-columns: repeat(6, 200px);
+    justify-items: center;
+    width: 1000px;
+    margin: 0 0 20px 20px;
+    
+}
+
+
+#runningtable div p, #othertable div p, #mttable div p, #gymtable div p{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#runningtable div p, #runningtable div input, #runningtable div select{
+    margin: 10px 5px;
+}
+
+#r8{
+    grid-template-columns: 80px 20px;
+}
+
+#r11, #o6, #m5, #g32{ /*Layout for calories input*/
+    grid-template-columns: 80px 60px;
+}
+
+#r9, #o7{ /*Layout for time input*/
+    grid-template-columns: 60px 40px 60px 40px;
+}
+
+#r10{
+    grid-template-columns: 60px 20px 60px 40px;
+}
+
+/*Other Table*/
+#othertable{
+    display: grid;
+    grid-template-areas: 
+    "o1 o2 o3 o4"
+    "o5 o6 o7 o8";
+    grid-template-columns: repeat(4, 200px);
+    justify-items: center;
+    width: 1000px;
+    margin: 0 0 20px 20px;
+}
+
+#othertable div p, #othertable div input{
+    margin: 10px 5px;
 }
