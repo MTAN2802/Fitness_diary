@@ -1,17 +1,46 @@
 //Getting the data from the homepage
 const urlParams = new URLSearchParams(window.location.search);
-const params = ['gym', 'muaythai', 'running', 'other'];
 
-for (i = 0; i < params.length; i++){
-    if (urlParams.get(params[i]) === 'on'){
-        document.getElementById(params[i] + 'routine').style.display = 'initial';
-        document.getElementById(params[i]).value = 'true';
+if (urlParams.get('gym') === 'on'){
+    document.getElementById('gymroutine').style.display = 'initial';
+    document.getElementById('gym').value = 'true';
+    document.getElementById('gcalories').required = 'true';
+
+    for (let i = 1; i <= 5; i++){
+        document.getElementById(`exercise${i}`).required = 'true';
+        document.getElementById(`e${i}weight`).required = 'true';
+        document.getElementById(`e${i}complete`).required = 'true';
     }
+}
+
+if (urlParams.get('muaythai') === 'on'){
+    document.getElementById('muaythairoutine').style.display = 'initial';
+    document.getElementById('muaythai').value = 'true';
+    document.getElementById('mtcalories').required = 'true';
+}
+
+if (urlParams.get('running') === 'on'){
+    document.getElementById('runningroutine').style.display = 'initial';
+    document.getElementById('running').value = 'true';
+    document.getElementById('rdistance').required = 'true';
+    document.getElementById('rtimehr').required = 'true';
+    document.getElementById('rtimemin').required = 'true';
+    document.getElementById('rpacemin').required = 'true';
+    document.getElementById('rpacesec').required = 'true';
+    document.getElementById('rcalories').required = 'true';
+    document.getElementById('rlocation').required = 'true';
 }
 
 if (urlParams.get('other') == 'on'){
     const otherExercise = urlParams.getAll('other')[1];
     document.getElementById('name').value = otherExercise
+
+    document.getElementById('otherroutine').style.display = 'initial';
+    document.getElementById('other').value = 'true';
+    document.getElementById('name').required = 'true';
+    document.getElementById('timehr').required = 'true';
+    document.getElementById('timemin').required = 'true';
+    document.getElementById('location').required = 'true';
 }
 
 //Adding current date to website
